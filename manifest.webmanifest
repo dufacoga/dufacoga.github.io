@@ -1,6 +1,6 @@
 {
-  "name": "Portfolio",
-  "short_name": "Portfolio",
+  "name": "Portfolio_dev",
+  "short_name": "Portfolio_dev",
   "id": "./",
   "start_url": "./",
   "display": "standalone",

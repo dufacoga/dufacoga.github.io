@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "Wm+lLG4Z",
+  "version": "TBOV7WL/",
   "assets": [
     {
       "hash": "sha256-+vgZaLZWDaRvY3Q5Jisyaq8jyt2nY0elaH0BOeQiiGs=",
@@ -198,7 +198,7 @@ self.assetsManifest = {
       "url": "js/themetoggle.js"
     },
     {
-      "hash": "sha256-iOxy/vIwb14+wTroZQjrMYz42mRkF1Aub9Pkz49bqGs=",
+      "hash": "sha256-KRVWcfz2s2ncBvZsJ2Jm736byR5keR1HXtpaIvh4zkM=",
       "url": "manifest.webmanifest"
     }
   ]
