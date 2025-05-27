@@ -1,0 +1,871 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+/* #region Color & Size Variables */
+
+    :root {
+        --bg-color: #e5e6e6;
+        --text-color: #4c4c4c;
+        --accent-color: #4c4c4c;
+        --accent-text-color: #e5e6e6;
+        --card-group-bg: #eff0f0;
+        --card-bg: #ffffff;
+        --border-radius: 4px;
+        --font-size-h1: 1.25rem;
+        --font-size-h2: 1.25rem;
+        --font-size-h3: 1rem;
+        --font-size-h4: 0.75rem;
+        --font-size-body: 0.7rem;
+        --font-weight-h1-bold: 800;
+        --font-weight-bold: 600;
+        --font-weight-regular: 400;
+    }
+
+    [data-theme='dark'] {
+        --bg-color: #15191e;
+        --text-color: #7e8391;
+        --accent-color: #6b76f0;
+        --accent-text-color: #15191e;
+        --card-group-bg: #181d23;
+        --card-bg: #1d232a;
+        --border-radius: 16px;
+    }
+
+    [data-theme='light'] {
+        --bg-color: #e5e6e6;
+        --text-color: #616873;
+        --accent-color: #5f35ff;
+        --accent-text-color: #e5e6e6;
+        --card-group-bg: #eff0f0;
+        --card-bg: #ffffff;
+        --border-radius: 16px;
+    }
+
+/* #endregion */
+
+/* #region Global Styles */
+
+    *, *::before, *::after {
+        box-sizing: border-box;
+        width: 100%;
+        border-width: 0;
+        font-family: 'Roboto Mono', monospace;
+    }
+
+    body {
+        margin: 0;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    html, body, .app, .main, .home {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    h2, h3 {
+        font-weight: var(--font-weight-bold);
+    }
+
+    h1, h2, h3, h4, span {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: var(--font-size-h1);
+        font-weight: var(--font-weight-h1-bold);
+    }
+
+    h2 {
+        font-size: var(--font-size-h2);
+    }
+
+    h3 {
+        font-size: var(--font-size-h3);
+    }
+
+    h4 {
+        font-size: var(--font-size-h4);
+        font-weight: var(--font-weight-regular);
+    }
+
+    body, p, span, a, button, div {
+        font-size: var(--font-size-body);
+        font-weight: var(--font-weight-regular);
+    }
+
+/* #endregion */
+
+/* Principal Container */
+.home {
+    display: grid;
+    margin: 0;
+    padding: 1rem 1rem 0.5rem 1rem;
+    height: 100%;
+    width: 100%;
+    grid-gap: 0.75rem;
+    grid-template-rows: 1fr auto;
+    align-content: center;
+}
+
+/* Body Container */
+.container {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-content: start;
+}
+
+.column1 {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    grid-gap: 1rem;
+    grid-template-rows: repeat(7,auto);
+    grid-template-columns: 1fr;
+    align-content: start;
+}
+
+.row {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    display: grid;
+    width: 100%;
+    justify-self: stretch;
+    align-self: stretch;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+a.card {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.card.clone {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* #region 1st Card 1st Column - Header */
+
+    .headercard {
+        display: grid;
+        margin: 0;
+        padding: 1rem !important;
+        grid-gap: 0;
+        grid-template-columns: repeat(2,auto);
+        align-content: center;
+    }
+
+    .headertitle {
+        display: grid;
+        margin: 0;
+        padding: 0;
+        grid-gap: 0.25rem;
+        grid-template-rows: repeat(2,auto);
+        align-content: center;
+        justify-content: start;
+    }
+
+    /* #region Theme Toggle */
+
+        .theme-toggle-button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        .headerdropdown {
+            display: grid;
+            margin: 0;
+            padding: 0;
+            align-content: center;
+            justify-content: end;
+        }
+        /* Wrapper for the dropdown component, enabling absolute positioning */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Button that toggles the dropdown menu */
+        .dropdown-button {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            display: grid;
+            gap: 0.75rem;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            align-items: center;
+            transition: background-color 0.2s ease;
+        }
+
+            /* Hover effect for the dropdown button */
+            .dropdown-button:hover {
+                background-color: var(--card-group-bg);
+            }
+
+        .dropdown-text {
+            display:none;
+        }
+
+        /* Hidden menu that appears when dropdown is activated */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--card-group-bg);
+            border: none;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 0.25rem;
+            min-width: 160px;
+            z-index: 999;
+        }
+
+        /* When the dropdown is open, display the menu */
+        .dropdown.open .dropdown-menu {
+            display: block;
+        }
+
+        /* Individual item inside the dropdown menu */
+        .dropdown-item {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            color: var(--text-color);
+            font-size: var(--font-size-body);
+            font-weight: var(--font-weight-regular);
+            border-radius: var(--border-radius);
+        }
+
+            /* Hover effect for dropdown items */
+            .dropdown-item:hover {
+                background-color: var(--bg-color);
+                border-radius: var(--border-radius);
+            }
+
+    /* #endregion */
+
+/* #endregion */
+
+/* #region 2nd Card 1st Column - Profile */
+
+    .profilecard {
+        display: grid;
+        margin: 0;
+        grid-gap: 1rem;
+        grid-template-rows: repeat(3,auto);
+        align-content: center;
+    }
+
+    .profile-item {
+        display: grid;
+        margin: auto;
+        padding: 0;
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* #region Profile Image */
+
+        /* Container for the entire profile section, vertically centered */
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        /* Wrapper for the profile image with circular border and shadow */
+        .profile-image-wrapper {
+            padding: 3px;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px var(--accent-color);
+            width: 7rem;
+            height: 7rem;
+            overflow: hidden;
+        }
+
+            /* Ensures the image fills the wrapper and remains circular */
+            .profile-image-wrapper img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+
+        /* Styles the name/title in the profile info section */
+        .profile-info h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        /* Button styling for actions like downloading resume */
+        .profile-actions .download-button {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+        }
+
+            /* Hover effect for the action button */
+            .profile-actions .download-button:hover {
+                background-color: var(--text-color);
+                color: var(--card-bg);
+                border: 1px solid var(--text-color);
+                opacity: 0.5;
+                padding: 0.5rem 1rem;
+                border-radius: var(--border-radius);
+                cursor: pointer;
+                text-decoration: none;
+                transition: background-color 0.2s ease;
+            }
+
+    /* #endregion */
+
+    .profile-info {
+        display: grid;
+        margin: 0;
+        padding: 0 4.5rem;
+        grid-gap: 0.5rem;
+        grid-template-rows: repeat(2,auto);
+    }
+
+        .profile-info > span {
+            white-space: normal;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+
+/* #endregion */
+
+/* #region 3rd Card 1st Column - Contacts */
+
+    .contactcard {
+        display: grid;
+        margin: 0;
+        grid-gap: 0.5rem;
+        grid-template-rows: repeat(6,auto);
+        align-content: center;
+    }
+
+    .contact {
+        display: grid;
+        margin: 0;
+        padding: 0;
+        grid-gap: 0.25rem;
+        grid-template-columns: auto 1fr;
+        align-content: center;
+        justify-content: end;
+    }
+
+        .contact > span {
+            text-align: end;
+        }
+
+        .contact a {
+            text-align: end;
+            text-decoration: none;
+            color: var(--text-color);
+            background: none;
+            border: none;
+            font: inherit;
+        }
+
+    .infocontacttitle {
+        display: grid;
+        margin: 0;
+        padding: 0;
+        grid-gap: 0.25rem;
+        grid-template-columns: repeat(2,auto);
+        align-content: center;
+        justify-content: start;
+    }
+
+        .infocontacttitle > h4 {
+            font-weight: var(--font-weight-bold);
+            text-align: start;
+        }
+
+/* #endregion */
+
+/* #region 4th Card 1st Column - Skills */
+
+    .skills {
+        text-align: center;
+    }
+
+    .infoskill {
+        display: inline-block;
+        background-color: var(--accent-color);
+        color: var(--accent-text-color);
+        margin: 0.2rem 0;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        white-space: normal;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        width: auto;
+        transition: background-color 0.3s ease;
+    }
+
+/* #endregion */
+
+/* Container General */
+.containerinfogeneral {
+    display: grid;
+    margin: 1rem 0;
+    padding: 0;
+    grid-gap: 0.25rem;
+    grid-template-columns: 1fr 14fr;
+    align-content: center;
+}
+
+    .containerinfogeneral > i {
+        display: grid;
+        align-content: center;
+        justify-content: start;
+        color: var(--bg-color);
+    }
+
+    .containerinfogeneral h3 {
+        font-size: 0.85rem;
+    }
+
+/* #region 5th Card 1st Column - Experiences */
+
+    .experience {
+        display: grid;
+        margin: 0;
+        padding: 0;
+        grid-gap: 0.75rem;
+        grid-template-rows: repeat(2,auto);
+        align-content: center;
+    }
+
+        .experience > h2 {
+            width: 100%;
+            margin: 0;
+            text-align: left;
+        }
+
+/* #endregion */
+
+/* #region 6th Card 1st Column - Certifications */
+
+    .certification {
+        display: grid;
+        margin: 0;
+        padding: 0;
+        grid-gap: 0.75rem;
+        grid-template-rows: repeat(2,auto);
+        align-content: center;
+    }
+
+        .certification > h2 {
+            width: 100%;
+            margin: 0;
+            text-align: left;
+        }
+
+/* #endregion */
+
+/* #region 7th Card 1st Column - Educations */
+
+    .education {
+        display: grid;
+        margin: 0;
+        padding: 0;
+        grid-gap: 0.75rem;
+        grid-template-rows: repeat(2,auto);
+        align-content: center;
+    }
+
+        .education > h2 {
+            width: 100%;
+            margin: 0;
+            text-align: left;
+        }
+
+/* #endregion */
+
+.column2 {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    grid-gap: 1rem;
+    grid-template-rows: repeat(4,auto);
+    align-content: start;
+}
+
+.groupcard {
+    display: grid;
+    margin: 0;
+    grid-gap: 1rem;
+    align-content: center;
+}
+
+.grouptitle {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: auto auto;
+    align-content: start;
+}
+
+    .grouptitle > a {
+        text-align: end;
+        cursor: pointer;
+        text-decoration: none;
+        color: var(--text-color);
+    }
+
+        .grouptitle > a:hover,
+        .grouptitle > a:visited,
+        .grouptitle > a:active {
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+/* #region 1st Card 2nd Column - GitHub Projects */
+
+    .githubprojects {
+        display: grid;
+        margin: 0;
+        padding: 0;
+        grid-gap: 1rem;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(4,auto);
+        align-content: center;
+    }
+
+        .githubprojects a {
+            text-decoration: none;
+            color: var(--text-color);
+            display: grid;
+            width: 100%;
+            justify-self: stretch;
+            align-self: stretch;
+            background-color: var(--card-bg);
+            transition: box-shadow 0.3s ease;
+        }
+
+    .infogithubprojectcard {
+        display: grid;
+        margin: 0;
+        padding: 0;
+        grid-gap: 1rem;
+        grid-template-rows: repeat(3,auto);
+        align-content: start;
+    }
+
+    .infogithubprojecttitle {
+        display: grid;
+        margin: 0;
+        padding: 0;
+        grid-gap: 0.25rem;
+        grid-template-columns: repeat(2,auto);
+        align-content: center;
+        justify-content: start;
+    }
+
+    .infogithubprojectdata {
+        display: grid;
+        margin: 0;
+        padding: 0;
+        grid-gap: 0.25rem;
+        grid-template-columns: 1fr 9fr;
+        align-content: center;
+    }
+
+    .infogithubprojectitems {
+        display: grid;
+        margin: 0;
+        padding: 0;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(2,auto);
+        align-content: center;
+    }
+
+    .infogithubprojectstars {
+        display: grid;
+        margin: 0;
+        padding: 0;
+        grid-gap: 0.25rem;
+        grid-template-columns: repeat(2,auto);
+        align-content: center;
+    }
+
+    .infogithubprojectforks {
+        display: grid;
+        margin: 0;
+        padding: 0;
+        grid-gap: 0.25rem;
+        grid-template-columns: repeat(2,auto);
+        align-content: center;
+    }
+
+    .infogithubprojectlenguaje {
+        display: grid;
+        margin: 0;
+        padding: 0;
+        grid-gap: 0.25rem;
+        grid-template-columns: repeat(2,auto);
+        align-content: center;
+        justify-content: end;
+    }
+
+        .infogithubprojectlenguaje > i {
+            font-size: var(--font-size-h2);
+        }
+
+        .infogithubprojectlenguaje > span {
+            align-content: center;
+        }
+
+/* #endregion */
+
+/* #region 2nd Card 2nd Column - Publications */
+
+.publications {
+    display: grid;
+    margin: 0;
+    grid-gap: 1rem;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(2,auto);
+    align-content: center;
+}
+
+    .publication {
+        display: grid;
+        margin: 0;
+        padding: 3rem;
+        grid-gap: 0.5rem;
+        grid-template-rows: repeat(4,auto);
+        align-content: center;
+        text-align: center;
+    }
+
+        .publication > p {
+            text-align: justify;
+        }
+
+/* #endregion */
+
+/* #region 3rd Card 2nd Column - My Projects */
+
+.myprojects {
+    display: grid;
+    margin: 0;
+    grid-gap: 1rem;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(2,auto);
+    align-content: center;
+}
+
+    .project {
+        display: grid;
+        margin: 0;
+        padding: 3rem;
+        grid-gap: 0.5rem;
+        grid-template-rows: repeat(4,auto);
+        align-content: center;
+        text-align: center;
+    }
+
+        .project > img {
+            aspect-ratio: 1 / 1;
+            width: 100%;
+            height: auto;
+            max-width: 7rem;
+            display: block;
+            margin: auto auto;
+            object-fit: cover;
+            border-radius: 2.5rem;
+        }
+
+/* #endregion */
+
+/* #region 4th Card 2nd Column - My Articles */
+
+    .myarticles {
+        display: grid;
+        margin: 0;
+        grid-gap: 1rem;
+        grid-template-rows: repeat(2,auto);
+        align-content: center;
+    }
+
+    .article {
+        display: grid;
+        margin: 0;
+        padding: 2rem;
+        grid-gap: 2rem;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto;
+        align-content: center;
+        text-align: justify;
+    }
+
+        .article > img {
+            aspect-ratio: 1 / 1;
+            width: 100%;
+            height: auto;
+            max-width: 7rem;
+            display: block;
+            margin: auto auto;
+            object-fit: cover;
+            border-radius: 2.5rem;
+        }
+
+    .infomyarticlecontainer {
+        width: 100%;
+        display: grid;
+        margin: 0;
+        padding: 0;
+        grid-gap: 1rem;
+        grid-template-rows: repeat(3,auto);
+        align-content: center;
+    }
+
+    .infomyarticlecontent {
+        display: grid;
+        margin: 0;
+        padding: 0;
+        grid-gap: 0.25rem;
+        grid-template-rows: repeat(2,auto);
+        align-content: center;
+    }
+
+        .infomyarticlecontent > h4 {
+            width: 100%;
+            font-weight: var(--font-weight-bold);
+            text-align: start;
+            white-space: normal;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+
+    .infomyarticlehashtags {
+        text-align: start;
+    }
+
+    .infomyarticlehashtag {
+        display: inline-block;
+        background-color: var(--bg-color);
+        color: var(--font-size-body);
+        margin: 0.2rem 0;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        white-space: normal;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        width: auto;
+        transition: background-color 0.3s ease;
+    }
+
+/* #endregion */
+
+.footer {
+    display: grid;
+    margin: 0 0.5rem 0.5rem 0.5rem;
+    padding: 0;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    width: auto;
+    align-content: center;
+    justify-content: center;
+}
+
+.footercard {
+    display: inline-block;
+    margin: 0;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+.groupcard {
+    background-color: var(--card-group-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+@media (min-width: 768px) {
+
+    .dropdown-button {
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-rows: auto;
+    }
+
+    .dropdown-text {
+        display: block;
+    }
+
+    .githubprojects {
+        grid-template-columns: repeat(2,auto);
+        grid-template-rows: repeat(4,auto);
+    }
+
+    .publications {
+        grid-template-columns: repeat(2,auto);
+        grid-template-rows: auto;
+    }
+
+    .myprojects {
+        grid-template-columns: repeat(2,auto);
+        grid-template-rows: auto;
+    }
+
+    .article {
+        grid-template-columns: auto 10fr;
+        grid-template-rows: auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .home {
+        padding: 2rem 2rem 1rem 2rem;
+    }
+
+    .container {
+        grid-template-columns: 1fr 3fr;
+        grid-gap: 1rem;
+        grid-template-rows: auto;
+    }
+    .profile-info {
+        padding: 0;
+    }
+}
