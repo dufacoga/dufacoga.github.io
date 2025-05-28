@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "A7wKjEAI",
+  "version": "sye5gKaH",
   "assets": [
     {
       "hash": "sha256-um3I5IvC+xK9im+jwRBpYZh8ThXzR0w1cRyfSOy03lI=",
@@ -58,7 +58,7 @@ self.assetsManifest = {
       "url": "_framework/Microsoft.JSInterop.wasm"
     },
     {
-      "hash": "sha256-bUURiYab5R8k8aIMk/k8TZGtDTtgvOF70oTHXY03LU4=",
+      "hash": "sha256-ZYZs9RFFmNlBZ1xBQ0C2DC/h31vBu2eL4eulnvuFx+0=",
       "url": "_framework/Portfolio_dev.wasm"
     },
     {
@@ -126,7 +126,7 @@ self.assetsManifest = {
       "url": "_framework/System.Text.RegularExpressions.wasm"
     },
     {
-      "hash": "sha256-6YtpQV4gHJQz3DoWIiPic6Nyxg4Me2l4saC5H9KZyK4=",
+      "hash": "sha256-zh2vnW1C7BToaa/7eHd6FpN5f4zI6ScRBneHyhRYvgY=",
       "url": "_framework/blazor.boot.json"
     },
     {
@@ -168,6 +168,10 @@ self.assetsManifest = {
     {
       "hash": "sha256-hZ5Yfh0ZvPeKjSpuf5Gclk0qJcM2HP+xQLsJZruqYqw=",
       "url": "css/style.css"
+    },
+    {
+      "hash": "sha256-hGXQ9O+a3mHOX5DjU5cuXWqgqh00CnMHJN2stihljp0=",
+      "url": "images/DFCG Resume.pdf"
     },
     {
       "hash": "sha256-P7o/0RhP154O1+944hT/kk6kwZhDTA0GwQjm7Qt73h8=",
